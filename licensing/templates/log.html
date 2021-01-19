@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Bridge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>OutlastCC | Logs</title>
+        <link rel="stylesheet" type="text/css" href="{% static "/bootstrap/css/bootstrap.min.css" %}">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">
+        <link rel="stylesheet" type="text/css" href={% static "/css/license.css" %}>
+        <link rel="stylesheet" type="text/css" href="{% static "/css/styles.css" %}">
+    </head>
+    <body>
+        <nav class="navbar navbar-dark navbar-expand-md" style="background-color: #002F35;font-family: 'Open Sans', sans-serif;">
+            <div class="container-fluid"><a class="navbar-brand" href="/licensing/"><strong>OutlastCC</strong></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="/licensing/add" style="color: rgb(255,255,255);">Add License</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="/licensing/validate" style="color: rgba(255,255,255,1);">Validate License</a></li>
+                    </ul>
+            </div>
+            </div>
+        </nav>
+        <div class="log-table" b>
+            <div class="header">
+                <h1>License log</h1>
+                </div>
+                <div class="content">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                           <th class="fit">Date.</th>
+                           <th>License</th>
+                            <th>Software</th>
+							<th>Discord</th>
+                            <th>IP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for log in context.logs %}
+                        <tr>
+                            <td class="fit">{{ log.date }}</td>
+                            <td class="fit"> {{ log.key }}</td>
+                            <td class="fit"> {{ log.software }}</td>
+							<td class="fit"> {{ log.discord }} </td>
+                            <td class="fit"> {{ log.ip }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+    </body>
+</html>

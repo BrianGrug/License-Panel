@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Bridge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>OutlastCC | Revoked License</title>
+    <link rel="stylesheet" type="text/css" href="{% static "/bootstrap/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">
+</head>
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md" style="background-color: #002F35;font-family: 'Open Sans', sans-serif;">
+        <div class="container-fluid"><a class="navbar-brand" href="add.html"><strong>OutlastCC</strong></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/licensing/revoke" style="color: rgb(255,255,255);">Revoke License</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/licensing/validate" style="color: rgba(255,255,255,1);">Validate License</a></li>
+                </ul>
+        </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="col-md-4" style="margin-top: 10%">
+            <h1>Revoked License: {{ context.key }}</h1>
+        </div>
+    </div>
+</body>
+</html>
