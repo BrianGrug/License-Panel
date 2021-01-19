@@ -1,15 +1,12 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
-        <title>Mizule | Add</title>
+        <title>Mizule | Login</title>
         <link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/585195256107237386/789019097098092565/MD_NORMAL.png" type="image/png">
         <meta name="theme-color" content="#3751e4">
 
@@ -104,7 +101,7 @@ a {
 }
 
 .inputF {
-    width: 400px;
+    width: 300px;
     outline: none;
     font-family: 'Montserrat', sans-serif;
     height: 45px;
@@ -149,35 +146,27 @@ a {
 
         <div class="ContainerRight">
 
-            <p class="headTitle">Add a License</p>
-            <p class="headslogan">fill information</p>
+            <p class="headTitle">Login</p>
 
-            {% if context.error is not None %}
-                <div class="alert alert-danger" role="alert">
-                <strong>Error!</strong> {{ context.error }}
-                </div>
-            {% endif %}
-
-            {% if context.discord is not None %}
-            <div class="alert alert-primary" role="alert">
-              <strong>Success!</strong> Added license for user {{ context.discord }}
-            </div>
-            {% endif %}
-
-            <form class="conForm" method="POST">
+            <form class="conForm" method="POST" action="{% url 'login' %}">
                 {% csrf_token %}
-                <label class="inputLabel">Discord Account</label>
-                <input class="inputF" name="discord" type="text" placeholder="Discord Account">
+                {{ form.username.label_tag }}
+                {{ form.username }}
 
-                <label class="inputLabel">Software</label>
-                <input class="inputF" name="software" type="text" placeholder="Software">
+                {{ form.password.label_tag }}
+                {{ form.password }}
 
-                <button class="inputBtn" type="submit" onclick="">Submit</button>
+                {{ form.errors }}
+
+                <button class="inputBtn" type="submit">LOGIN</button>
 
             </form>
+
         </div>
+
     </div>
 
 
 </body>
+
 </html>

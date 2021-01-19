@@ -1,5 +1,5 @@
 {% load static %}
-
+{% csrf_token %}
 
 <!DOCTYPE html>
 <html>
@@ -8,11 +8,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     <title>Mizule | Home</title>
     <link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/585195256107237386/789019097098092565/MD_NORMAL.png" type="image/png">
     <meta name="theme-color" content="#3751e4">
-    
+
 
     <style>
 
@@ -87,7 +88,7 @@ letter-spacing: 1px;
 }
 
 .ContainerRight {
-margin-left: 100px;
+margin-left: 750px;
 }
 
 .conForm {
@@ -133,7 +134,16 @@ font-weight: 600;
 
 </head>
 
+
+
 <body>
+    {% if user.is_authenticated %}
+    {% else %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Oops!</strong> You need to <a href="/user/login"><strong>login</strong></a> to access these pages.
+    </div>
+    {% endif %}
+
     <div class="MainContainer">
 
         <div class="ContainerLeft">
@@ -147,13 +157,18 @@ font-weight: 600;
 
 
         </div>
-        
+
         <div class="ContainerRight">
-
-            Hello, welcome to Mizule!
-            <br>
-            Browse your way around here.
-
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <center>
+                <h5 class="card-title">Welcome, {{ user.username }}</h5>
+                <p class="card-text"><strong>Warning!</strong></p>
+                <p class="card-text">This is currently in beta.</p>
+                <a href="/user/logout" class="card-link">Logout</a>
+              </center>
+            </div>
+          </div>
         </div>
 
     </div>

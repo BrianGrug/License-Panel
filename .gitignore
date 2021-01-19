@@ -1,1 +1,3 @@
 .ftpconfig
+__pycache__/
+.github/*
