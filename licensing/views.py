@@ -11,26 +11,18 @@ from . import models
 import random
 import string
 from ipware import ip
+from django.contrib.auth.decorators import login_required
 
 
 # /licensing
 def index(request):
     return render(request, 'index.html')
 
-
+@login_required
 def add(request):
     if request.method != "POST":
         return render(request, 'add.html')
     else:
-        password = request.POST.get("password")
-
-        if password != "Tpz)6bWl*@!6'V`":
-            return render(request, 'add.html', {
-                'context': {
-                    'error': 'Invalid password.'
-                }
-            })
-
         key = str(''.join((random.choice(string.ascii_letters)) for i in range(32)))
         discord = request.POST.get("discord")
         software = str(request.POST.get("software")).lower()
@@ -48,14 +40,13 @@ def add(request):
 
         collection.insert_one({"key": key, "discord": discord})
 
-        return render(request, 'added.html', {
+        return render(request, 'add.html', {
             'context': {
                 'key': key,
                 'discord': discord
             }
         })
-
-
+@login_required
 def revoke(request):
     if request.method != "POST":
         return render(request, 'revoke.html')
@@ -96,6 +87,7 @@ def revoke(request):
             }
         })
 
+@login_required
 def g_discord(request):
     if request.method != "POST":
         return render(request, 'discord.html')
@@ -131,7 +123,7 @@ def g_discord(request):
             }
         })
 
-
+@login_required
 def logs(request):
     if request.method != "POST":
         return render(request, 'logs.html')

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <filter id="Path_2" x="723.182" y="-181.575" width="1957.026" height="1759.619" filterUnits="userSpaceOnUse">
+      <feOffset dy="15" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="7.5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_1" x="768.576" y="-343.908" width="1499.257" height="1711.333" filterUnits="userSpaceOnUse">
+      <feOffset dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="7.5" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-Web_1920_1">
+      <rect width="1920" height="1080"/>
+    </clipPath>
+  </defs>
+  <g id="Web_1920_1" data-name="Web 1920 – 1" clip-path="url(#clip-Web_1920_1)">
+    <rect width="1920" height="1080" fill="#fff"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Path_2)">
+      <path id="Path_2-2" data-name="Path 2" d="M1394.87,1152.383c46.886-226.921,572.014-266.385,138.315-648.7-58.116-51.23-164.787-155.91-240.074-198.4C806.966,30.9,81.737-8.029,79.707.515,77.363,10.381,0,1465.632,0,1465.632Z" transform="translate(2428.43 1540.02) rotate(-171)" fill="#293fba"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Path_1)">
+      <path id="Path_1-2" data-name="Path 1" d="M439.792,77.363C322.445,210.621,282.356,207.349,212.709,257.542c-30.015,21.631-130.8,93.581-151.714,107.592-93.422,62.584-74.1,97.749,21.05,265.259,9.12,16.056,18.9,33.152,29.542,51.8,24.652,43.209,49.041,81.772,72.746,116.776,69.407,102.489,131.7,172.273,172.051,231.536,61.958,91,49.639,190.635-42.826,313.088C140.078,1573.34,1323.6,1556.629,1323.6,1556.629L1267.338,0Z" transform="translate(926.77 -326.41) rotate(5)" fill="#3751e4"/>
+    </g>
+    <path id="blob_4_" data-name="blob (4)" d="M-53.706-15.6c-4.4,12.7,9.8,32.3,29.4,47.1,19.5,14.7,44.3,24.7,59.4,15.2s20.4-38.5,12.4-56.3c-8.1-17.7-29.4-24.2-51.6-24.4C-26.306-34.3-49.306-28.4-53.706-15.6Z" transform="translate(1916.269 611.011)" fill="#293fba" opacity="0.5"/>
+    <path id="blob_5_" data-name="blob (5)" d="M-44.726-11.4c-6.7,21.2-6.9,43.9,6.8,55.8s41.2,13.1,57.7.7c16.4-12.4,21.7-38.2,14.6-60s-26.6-39.5-42.9-38.5C-24.926-52.4-38.026-32.6-44.726-11.4Z" transform="translate(1894.019 28.44)" fill="#293fba" opacity="0.46"/>
+    <path id="blob_2_" data-name="blob (2)" d="M-32.252-9.6c-6.8,19.2-6.3,42.5,4.8,50.4,11.2,8,33,.7,47.7-11.2,14.6-12,22.1-28.4,18-43.9-4.2-15.5-19.9-30-34.8-29.7C-11.352-43.7-25.452-28.7-32.252-9.6Z" transform="translate(1265.112 1080.004)" fill="#293fba" opacity="0.5"/>
+    <path id="blob_5_2" data-name="blob (5)" d="M-46.325-27.3C-50.62-14.113-50.748,0-41.967,7.4s26.406,8.146,36.981.435C5.525.127,8.922-15.917,4.372-29.473s-17.049-24.564-27.5-23.942C-33.635-52.793-42.031-40.48-46.325-27.3Z" transform="translate(1092.127 24.44)" fill="#293fba" opacity="0.5"/>
+  </g>
+</svg>

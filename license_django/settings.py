@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'licensing.apps.LicensingConfig'
+    'licensing.apps.LicensingConfig',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,7 @@ STATICFILES_DIRS = [
 
 MONGO_CLIENT = pymongo.MongoClient('192.168.1.17', 27017)
 MONGO_DATABASE = MONGO_CLIENT.outlast
+
+LOGIN_REDIRECT_URL = '/licensing'
+LOGIN_URL = '/user/login/'
+LOGOUT_REDIRECT_URL = '/user/login/'
