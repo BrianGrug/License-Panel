@@ -138,13 +138,9 @@ font-weight: 600;
 
 <body>
     {% if user.is_authenticated %}
-
     {% else %}
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-      <strong>Oops!</strong> You need to login to access these pages.
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
+      <strong>Oops!</strong> You need to <a href="/user/login"><strong>login</strong></a> to access these pages.
     </div>
     {% endif %}
 
