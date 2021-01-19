@@ -51,15 +51,6 @@ def revoke(request):
     if request.method != "POST":
         return render(request, 'revoke.html')
     else:
-        password = request.POST.get("password")
-
-        if password != "Tpz)6bWl*@!6'V`":
-            return render(request, 'revoke.html', {
-                'context': {
-                    'error': 'Invalid password.'
-                }
-            })
-
         key = request.POST.get("key")
         software = str(request.POST.get("software")).lower()
 
@@ -92,15 +83,6 @@ def g_discord(request):
     if request.method != "POST":
         return render(request, 'discord.html')
     else:
-        password = request.POST.get("password")
-
-        if password != "":
-            return render(request, 'discord.html', {
-                'context': {
-                    'error': 'Invalid password.'
-                }
-            })
-
         key = request.POST.get("key")
         software = str(request.POST.get("software")).lower()
 
@@ -128,15 +110,6 @@ def logs(request):
     if request.method != "POST":
         return render(request, 'logs.html')
     else:
-        password = request.POST.get("password")
-
-        if password != "Tpz)6bWl*@!6'V`":
-            return render(request, 'logs.html', {
-                'context': {
-                    'error': 'Invalid password.'
-                }
-            })
-
         logs_render = LicenseHelper.get_logs()
 
         return render(request, 'log.html', {

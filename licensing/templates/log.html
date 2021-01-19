@@ -1,56 +1,190 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="author" content="Bridge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>OutlastCC | Logs</title>
-        <link rel="stylesheet" type="text/css" href="{% static "/bootstrap/css/bootstrap.min.css" %}">
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">
-        <link rel="stylesheet" type="text/css" href={% static "/css/license.css" %}>
-        <link rel="stylesheet" type="text/css" href="{% static "/css/styles.css" %}">
-    </head>
-    <body>
-        <nav class="navbar navbar-dark navbar-expand-md" style="background-color: #002F35;font-family: 'Open Sans', sans-serif;">
-            <div class="container-fluid"><a class="navbar-brand" href="/licensing/"><strong>OutlastCC</strong></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="/licensing/add" style="color: rgb(255,255,255);">Add License</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="/licensing/validate" style="color: rgba(255,255,255,1);">Validate License</a></li>
-                    </ul>
-            </div>
-            </div>
-        </nav>
-        <div class="log-table" b>
-            <div class="header">
-                <h1>License log</h1>
-                </div>
-                <div class="content">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                           <th class="fit">Date.</th>
-                           <th>License</th>
-                            <th>Software</th>
-							<th>Discord</th>
-                            <th>IP</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {% for log in context.logs %}
-                        <tr>
-                            <td class="fit">{{ log.date }}</td>
-                            <td class="fit"> {{ log.key }}</td>
-                            <td class="fit"> {{ log.software }}</td>
-							<td class="fit"> {{ log.discord }} </td>
-                            <td class="fit"> {{ log.ip }}</td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                    </table>
-                </div>
-            </div>
-    </body>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <title>Mizule | Logs</title>
+    <link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/585195256107237386/789019097098092565/MD_NORMAL.png" type="image/png">
+    <meta name="theme-color" content="#3751e4">
+
+
+    <style>
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Montserrat', sans-serif;
+background: #ffffff;
+color: #202020;
+}
+
+a {
+text-decoration: none;
+color: inherit;
+}
+
+.MainContainer {
+background: url(https://cdn.discordapp.com/attachments/585195256107237386/794283656516206622/main-back.svg);
+min-height: 100vh;
+background-size: cover;
+background-repeat: no-repeat;
+
+display: flex;
+align-items: center;
+}
+
+.ContainerLeft {
+width: 100px;
+background:#2a40ba;
+min-height: 100vh;
+
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+.sideBar-link {
+color: white;
+font-size: 38px;
+width: 95%;
+padding: 25px 0px;
+margin: 15px 0px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.activeLink {
+background: white;
+border-top-left-radius: 30px;
+border-bottom-left-radius: 30px;
+margin-left: 5px;
+color: #2a40ba;
+}
+
+.headTitle {
+font-weight: 600;
+font-size: 28px;
+color: #3d4758;
+}
+
+.headslogan {
+font-weight: 600;
+font-size: 14px;
+color: #3d4758;
+letter-spacing: 1px;
+}
+
+.ContainerRight {
+margin-left: 100px;
+}
+
+.conForm {
+margin: 25px 0px;
+display: flex;
+flex-direction: column;
+}
+
+.inputLabel {
+color: #3d475891;
+margin-bottom: 8px;
+font-size: 13px;
+font-weight: 500;
+}
+
+.inputF {
+width: 300px;
+outline: none;
+font-family: 'Montserrat', sans-serif;
+height: 45px;
+padding: 10px;
+border-radius: 6px;
+border: 1.9px solid #b3b3b3;
+margin-bottom: 15px;
+}
+
+::placeholder {
+font-size: 12px;
+}
+
+.inputBtn {
+background: #2a40ba;
+color: white;
+border: inherit;
+font-family: 'Montserrat', sans-serif;
+height: 40px;
+border-radius: 4px;
+text-transform: uppercase;
+font-weight: 600;
+}
+
+    </style>
+</head>
+
+<body>
+
+
+    <div class="MainContainer">
+
+        <div class="ContainerLeft">
+
+            <a href="/" class="sideBar-link"><i class="fas fa-home"></i></a>
+            <a href="/licensing/add/" class="sideBar-link"><i class="fas fa-plus-square"></i></a>
+            <a href="/licensing/revoke/" class="sideBar-link"><i class="fas fa-minus-square"></i></a>
+            <a href="/licensing/validate/" class="sideBar-link"><i class="fas fa-check-square"></i></a>
+            <a href="/licensing/logs/" class="sideBar-link activeLink"><i class="fas fa-list-alt"></i></a>
+            <a href="/licensing/discord/" class="sideBar-link"><i class="fas fa-check-square"></i></a>
+
+
+        </div>
+
+        <div class="ContainerRight">
+
+          <div class="log-table" b>
+              <div class="header">
+                  <h1>License log</h1>
+                  </div>
+                  <div class="content">
+                  <table class="table table-striped">
+                      <thead>
+                          <tr>
+                             <th class="fit">Date.</th>
+                             <th>License</th>
+                              <th>Software</th>
+  							<th>Discord</th>
+                              <th>IP</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                      {% for log in context.logs %}
+                          <tr>
+                              <td class="fit">{{ log.date }}</td>
+                              <td class="fit"> {{ log.key }}</td>
+                              <td class="fit"> {{ log.software }}</td>
+  							<td class="fit"> {{ log.discord }} </td>
+                              <td class="fit"> {{ log.ip }}</td>
+                          </tr>
+                      {% endfor %}
+                      </tbody>
+                      </table>
+                  </div>
+              </div>
+            </form>
+
+        </div>
+
+    </div>
+</body>
+
 </html>
