@@ -1,25 +1,22 @@
-FROM python:3.8-alpine
+FROM python:3
 
-ENV PATH="/scripts:${PATH}"
+ENV PYTHONUNBUFFERED 1
 
-COPY .requirements.txt /requirements.txt
-RUN apk add --update --no-cache --virtual .tmp gcc libc-dev linux-headers
-RUN pip install -r /requirements.txt
-RUN apk del .tmp
-
-RUN mkdir /panel
-COPY ./* /panel
 WORKDIR /panel
-COPY ./scripts /scripts
 
-RUN chmod +x /scripts/*
+RUN pip install --upgrade pip
 
-RUN mkdir -p /vol/web/media
-RUN mkdir -p /vol/web/static
+RUN pip install django
 
-RUN adduser -D user
-RUN chown -R user:user /vol
-RUN chmod -R 775 /vol/web
-USER user
+COPY requirements.txt /panel/
+RUN pip install -r requirements.txt
+EXPOSE 8001
 
-CMD ["entrypoint.sh"]
+COPY . /panel/
+
+RUN chmod u+rwx manage.py
+
+RUN ./manage.py makemigrations
+RUN ./manage.py migrate
+
+CMD python3 manage.py runserver 0.0.0.0:8001
