@@ -18,7 +18,6 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     return render(request, 'index.html')
 
-@login_required
 def add(request):
     if request.method != "POST":
         return render(request, 'add.html')
