@@ -1,0 +1,5 @@
+.ftpconfig
+__pycache__/
+.github/*
+venv/*
+license_django/__pycache__/*
