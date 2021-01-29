@@ -124,7 +124,7 @@ def validate(request):
     else:
         password = request.POST.get("password")
 
-        if password != "17011525":
+        if password != "5s7roiiky":
             return render(request, 'validate.html', {
                 'context': {
                     'error': 'Invalid password.'
